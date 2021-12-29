@@ -4,6 +4,6 @@ namespace BaseProject.Application.Interfaces
 {
     public interface IExampleAppService
     {
-        IResult<string> Get();
+        IResult<string> Get(bool throwException);
     }
 }

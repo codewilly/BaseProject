@@ -21,11 +21,15 @@ namespace BaseProject.API.Controllers
             _appService = appService;
         }
 
+        /// <summary>
+        /// Retorna uma mensagem de teste
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(bool throwException)
         {
             IResult<string> result =
-                _appService.Get();
+                _appService.Get(throwException);
 
             return Result(result);
         }

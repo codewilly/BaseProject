@@ -1,7 +1,6 @@
 ﻿using BaseProject.Infra.CrossCutting.IoC.Injections;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace BaseProject.Infra.CrossCutting.IoC
 {
@@ -11,6 +10,7 @@ namespace BaseProject.Infra.CrossCutting.IoC
         {
             AppServiceInjection.Inject(services);
             ServiceInjection.Inject(services);
+            MiddlewareInjection.Inject(services);
         }
     }
 }

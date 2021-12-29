@@ -1,4 +1,5 @@
 using BaseProject.Infra.CrossCutting.IoC;
+using BaseProject.Infra.CrossCutting.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -52,6 +53,8 @@ namespace BaseProject.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ExceptionHandler>();
 
             app.UseEndpoints(endpoints =>
             {

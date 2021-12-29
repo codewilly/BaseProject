@@ -2,6 +2,7 @@
 using BaseProject.Application.Interfaces;
 using BaseProject.Domain.Core.Interfaces;
 using BaseProject.Domain.Interfaces;
+using System;
 
 namespace BaseProject.Application.Services
 {
@@ -14,8 +15,11 @@ namespace BaseProject.Application.Services
             _service = service;
         }
 
-        public IResult<string> Get()
+        public IResult<string> Get(bool throwException)
         {
+            if (throwException)
+                throw new Exception("Erro de teste disparado com sucesso.");
+
             string message = _service.Get();
 
             return Success(message);

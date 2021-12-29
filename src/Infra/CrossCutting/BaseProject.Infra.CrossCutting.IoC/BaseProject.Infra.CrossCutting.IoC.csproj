@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Application\BaseProject.Application\BaseProject.Application.csproj" />
+    <ProjectReference Include="..\BaseProject.Infra.CrossCutting.Middleware\BaseProject.Infra.CrossCutting.Middleware.csproj" />
   </ItemGroup>
 
 </Project>

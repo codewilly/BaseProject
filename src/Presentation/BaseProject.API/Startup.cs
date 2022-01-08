@@ -1,5 +1,7 @@
+using BaseProject.Domain.CommandHandlers.Examples;
 using BaseProject.Infra.CrossCutting.IoC;
 using BaseProject.Infra.CrossCutting.Middleware;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,9 @@ namespace BaseProject.API
         {
 
             services.InjectServices(Configuration);
+
+            services.AddMediatR(typeof(Startup));
+            services.AddMediatR(typeof(CreateExampleCommand).Assembly);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

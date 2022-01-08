@@ -1,35 +1,37 @@
 ﻿using BaseProject.Application.Bases;
 using BaseProject.Application.Interfaces;
+using BaseProject.Domain.CommandHandlers.Examples;
 using BaseProject.Domain.Core.Interfaces;
 using BaseProject.Domain.Interfaces;
-using BaseProject.Infra.CrossCutting.CustomExceptions.Exceptions;
+using MediatR;
 using System;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace BaseProject.Application.Services
 {
     public class ExampleAppService : BaseAppService, IExampleAppService
     {
         private readonly IExampleService _service;
+        private readonly IMediator _mediator;
 
-        public ExampleAppService(IExampleService service)
+        public ExampleAppService(IExampleService service,
+                                 IMediator mediator)
         {
             _service = service;
+            _mediator = mediator;
         }
 
-        public IResult Create()
+        public async Task<IResult<Guid>> Create()
         {
-            bool isCreated = _service.Create();
+            Guid id = await _mediator.Send(new CreateExampleCommand());
 
-            if (!isCreated)
-                throw new ApiException("Falha ao criar.");
-
-            return Success(statusCode: HttpStatusCode.Created);
+            return Success(id, HttpStatusCode.Created);
         }
 
-        public IResult<string> Get(bool throwEx, bool throwInvalid)
+        public IResult<string> Get(bool throwEx)
         {
-            string message = _service.Get(throwEx, throwInvalid);
+            string message = _service.Get(throwEx);
 
             return Success(message);
         }

@@ -1,6 +1,4 @@
 ﻿using BaseProject.Domain.Core.Interfaces;
-using BaseProject.Infra.CrossCutting.CustomExceptions.Exceptions;
-using FluentValidation.Results;
 using System.Net;
 
 namespace BaseProject.Domain.Core.Models
@@ -13,7 +11,6 @@ namespace BaseProject.Domain.Core.Models
         }
 
         public HttpStatusCode StatusCode { get; set; }
-
     }
 
     public class Result<T> : Result, IResult<T>

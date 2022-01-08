@@ -1,11 +1,13 @@
 ﻿using BaseProject.Domain.Core.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace BaseProject.Application.Interfaces
 {
     public interface IExampleAppService
     {
-        IResult Create();
+        Task<IResult<Guid>> Create();
 
-        IResult<string> Get(bool throwEx, bool throwInvalid);
+        IResult<string> Get(bool throwEx);
     }
 }

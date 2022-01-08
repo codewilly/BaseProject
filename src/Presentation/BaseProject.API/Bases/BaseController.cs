@@ -1,6 +1,7 @@
 ﻿using BaseProject.API.ViewModels;
 using BaseProject.Domain.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BaseProject.API.Bases
 {
@@ -8,7 +9,12 @@ namespace BaseProject.API.Bases
     {
         protected IActionResult Result(IResult result)
         {
-            return StatusCode((int)result.StatusCode);
+            ResultViewModel _result = new()
+            {
+                TraceId = Guid.NewGuid() // TODO: Implementar traceId real
+            };
+
+            return StatusCode((int)result.StatusCode, _result);
         }
 
         protected IActionResult Result<T>(IResult<T> result)
@@ -16,6 +22,7 @@ namespace BaseProject.API.Bases
             ResultViewModel<T> _result = new()
             {
                 Data = result.Data,
+                TraceId = Guid.NewGuid() // TODO: Implementar traceId real
             };
 
             return StatusCode((int)result.StatusCode, _result);

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Infra\CrossCutting\BaseProject.Infra.CrossCutting.CustomExceptions\BaseProject.Infra.CrossCutting.CustomExceptions.csproj" />
     <ProjectReference Include="..\BaseProject.Domain.Core\BaseProject.Domain.Core.csproj" />
   </ItemGroup>

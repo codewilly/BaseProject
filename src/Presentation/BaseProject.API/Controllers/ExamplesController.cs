@@ -2,10 +2,7 @@
 using BaseProject.Application.Interfaces;
 using BaseProject.Domain.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BaseProject.API.Controllers
@@ -25,11 +22,11 @@ namespace BaseProject.API.Controllers
         /// Cria alguma coisa
         /// </summary>
         /// <returns></returns>
-        [HttpPut]
-        public IActionResult Create()
+        [HttpPost]
+        public async Task<IActionResult> Create()
         {
-            IResult result =
-                _appService.Create();
+            IResult<Guid> result =
+                await _appService.Create();
 
             return Result(result);
         }
@@ -39,10 +36,10 @@ namespace BaseProject.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get(bool throwException, bool throwNotification)
+        public IActionResult Get(bool throwException)
         {
             IResult<string> result =
-                _appService.Get(throwException, throwNotification);
+                _appService.Get(throwException);
 
             return Result(result);
         }

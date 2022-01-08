@@ -34,7 +34,7 @@ namespace BaseProject.Infra.CrossCutting.Middleware
         {
             ConfigureContextResponse(context, statusCode);
 
-            ExceptionResponse response = new("Erro inesperado.", exception);
+            ExceptionResponse response = new(exception);
 
             Console.WriteLine("Erro: " + exception.Message);
 

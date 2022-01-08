@@ -22,14 +22,27 @@ namespace BaseProject.API.Controllers
         }
 
         /// <summary>
+        /// Cria alguma coisa
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        public IActionResult Create()
+        {
+            IResult result =
+                _appService.Create();
+
+            return Result(result);
+        }
+
+        /// <summary>
         /// Retorna uma mensagem de teste
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get(bool throwException)
+        public IActionResult Get(bool throwException, bool throwNotification)
         {
             IResult<string> result =
-                _appService.Get(throwException);
+                _appService.Get(throwException, throwNotification);
 
             return Result(result);
         }

@@ -8,21 +8,17 @@ namespace BaseProject.API.Bases
     {
         protected IActionResult Result(IResult result)
         {
-            ResultViewModel _result = new()
-            {
-            };
-            
-            return Ok(_result);
+            return StatusCode((int)result.StatusCode);
         }
 
         protected IActionResult Result<T>(IResult<T> result)
         {
             ResultViewModel<T> _result = new()
             {
-                Data = result.GetData()
+                Data = result.Data,
             };
 
-            return Ok(_result);
+            return StatusCode((int)result.StatusCode, _result);
         }
     }
 }

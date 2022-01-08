@@ -1,14 +1,15 @@
-﻿using System.Net;
+﻿using FluentValidation.Results;
+using System.Net;
 
 namespace BaseProject.Domain.Core.Interfaces
 {
     public interface IResult
     {
-        HttpStatusCode GetStatusCode();
+        public HttpStatusCode StatusCode { get; set; }
     }
 
     public interface IResult<T> : IResult
     {
-        T GetData();
-    }
+        public T Data { get; set; }
+    }    
 }

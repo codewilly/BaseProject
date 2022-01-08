@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infra\CrossCutting\BaseProject.Infra.CrossCutting.CustomExceptions\BaseProject.Infra.CrossCutting.CustomExceptions.csproj" />
   </ItemGroup>
 
 </Project>

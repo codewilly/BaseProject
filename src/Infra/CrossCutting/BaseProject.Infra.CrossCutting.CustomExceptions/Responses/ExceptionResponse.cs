@@ -1,14 +1,12 @@
 ﻿using System;
 
-namespace BaseProject.Infra.CrossCutting.Middleware.Models
+namespace BaseProject.Infra.CrossCutting.CustomExceptions.Responses
 {
-    public class ExceptionResponse
+    public class ExceptionResponse : Response
     {
         public ExceptionResponse(string title)
         {
             Title = title;
-
-            Date = DateTime.Now;
         }
 
         public ExceptionResponse(string title, Exception ex) : this(title)
@@ -17,14 +15,10 @@ namespace BaseProject.Infra.CrossCutting.Middleware.Models
             StackTrace = ex.StackTrace;           
         }
 
-        public Guid TraceId { get; set; } // TODO: Implementar TraceId
-
         public string Title { get; set; }
 
         public string Message { get; set; }
 
         public string StackTrace { get; set; }
-
-        public DateTime Date { get; private set; }
     }
 }

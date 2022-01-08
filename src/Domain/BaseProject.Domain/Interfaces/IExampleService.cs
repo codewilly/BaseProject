@@ -2,6 +2,8 @@
 {
     public interface IExampleService
     {
-        string Get();
+        bool Create();
+
+        string Get(bool throwEx, bool throwInvalid);
     }
 }

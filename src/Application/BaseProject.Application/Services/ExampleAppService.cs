@@ -2,7 +2,9 @@
 using BaseProject.Application.Interfaces;
 using BaseProject.Domain.Core.Interfaces;
 using BaseProject.Domain.Interfaces;
+using BaseProject.Infra.CrossCutting.CustomExceptions.Exceptions;
 using System;
+using System.Net;
 
 namespace BaseProject.Application.Services
 {
@@ -15,12 +17,19 @@ namespace BaseProject.Application.Services
             _service = service;
         }
 
-        public IResult<string> Get(bool throwException)
+        public IResult Create()
         {
-            if (throwException)
-                throw new Exception("Erro de teste disparado com sucesso.");
+            bool isCreated = _service.Create();
 
-            string message = _service.Get();
+            if (!isCreated)
+                throw new ApiException("Falha ao criar.");
+
+            return Success(statusCode: HttpStatusCode.Created);
+        }
+
+        public IResult<string> Get(bool throwEx, bool throwInvalid)
+        {
+            string message = _service.Get(throwEx, throwInvalid);
 
             return Success(message);
         }

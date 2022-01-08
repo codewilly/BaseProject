@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BaseProject.Infra.CrossCutting.CustomExceptions\BaseProject.Infra.CrossCutting.CustomExceptions.csproj" />
     <ProjectReference Include="..\BaseProject.Infra.CrossCutting.ExtensionHelper\BaseProject.Infra.CrossCutting.ExtensionHelper.csproj" />
   </ItemGroup>
 

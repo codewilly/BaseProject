@@ -11,27 +11,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infra", "04 - Infra", "{D802C782-2491-4A56-80E1-D50E20DD93D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.API", "src\Presentation\BaseProject.API\BaseProject.API.csproj", "{CDAFB0C0-CE03-4F15-A9BC-172193BB8E98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.API", "src\Presentation\BaseProject.API\BaseProject.API.csproj", "{CDAFB0C0-CE03-4F15-A9BC-172193BB8E98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Application", "src\Application\BaseProject.Application\BaseProject.Application.csproj", "{0AF04A1E-F680-40CB-8750-371E708C7351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Application", "src\Application\BaseProject.Application\BaseProject.Application.csproj", "{0AF04A1E-F680-40CB-8750-371E708C7351}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Domain", "src\Domain\BaseProject.Domain\BaseProject.Domain.csproj", "{97EC7108-D47B-491C-8D14-11907EB9C8A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Domain", "src\Domain\BaseProject.Domain\BaseProject.Domain.csproj", "{97EC7108-D47B-491C-8D14-11907EB9C8A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Domain.Core", "src\Domain\BaseProject.Domain.Core\BaseProject.Domain.Core.csproj", "{21527B6F-633A-470C-AD4A-5DC5E5947AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Domain.Core", "src\Domain\BaseProject.Domain.Core\BaseProject.Domain.Core.csproj", "{21527B6F-633A-470C-AD4A-5DC5E5947AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Domain.Tests", "src\Domain\BaseProject.Domain.Tests\BaseProject.Domain.Tests.csproj", "{A48B3503-2A51-4A02-AB58-AF9455DD7891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Domain.Tests", "src\Domain\BaseProject.Domain.Tests\BaseProject.Domain.Tests.csproj", "{A48B3503-2A51-4A02-AB58-AF9455DD7891}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.1 - Data", "04.1 - Data", "{1A0E7A85-D37F-42F9-B0CE-B015FC58E45D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.2 - CrossCutting", "04.2 - CrossCutting", "{19133686-BAB2-4FFE-8C40-86C0A6EFCB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Infra.Data", "src\Infra\Data\BaseProject.Infra.Data\BaseProject.Infra.Data.csproj", "{752BBFEF-AF3F-4F62-8892-16957AD0F54A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Infra.Data", "src\Infra\Data\BaseProject.Infra.Data\BaseProject.Infra.Data.csproj", "{752BBFEF-AF3F-4F62-8892-16957AD0F54A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Infra.CrossCutting.IoC", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.IoC\BaseProject.Infra.CrossCutting.IoC.csproj", "{440042ED-9A14-49EF-9133-8E5676FB5B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Infra.CrossCutting.IoC", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.IoC\BaseProject.Infra.CrossCutting.IoC.csproj", "{440042ED-9A14-49EF-9133-8E5676FB5B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Infra.CrossCutting.Middleware", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.Middleware\BaseProject.Infra.CrossCutting.Middleware.csproj", "{8FCDE408-5F4B-462A-B2B1-6BF080B0A6EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Infra.CrossCutting.Middleware", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.Middleware\BaseProject.Infra.CrossCutting.Middleware.csproj", "{8FCDE408-5F4B-462A-B2B1-6BF080B0A6EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Infra.CrossCutting.ExtensionHelper", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.ExtensionHelper\BaseProject.Infra.CrossCutting.ExtensionHelper.csproj", "{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseProject.Infra.CrossCutting.ExtensionHelper", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.ExtensionHelper\BaseProject.Infra.CrossCutting.ExtensionHelper.csproj", "{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseProject.Infra.CrossCutting.CustomExceptions", "src\Infra\CrossCutting\BaseProject.Infra.CrossCutting.CustomExceptions\BaseProject.Infra.CrossCutting.CustomExceptions.csproj", "{9D063415-D28D-4041-BE21-FBC3B1C927FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D063415-D28D-4041-BE21-FBC3B1C927FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D063415-D28D-4041-BE21-FBC3B1C927FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D063415-D28D-4041-BE21-FBC3B1C927FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D063415-D28D-4041-BE21-FBC3B1C927FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{440042ED-9A14-49EF-9133-8E5676FB5B92} = {19133686-BAB2-4FFE-8C40-86C0A6EFCB70}
 		{8FCDE408-5F4B-462A-B2B1-6BF080B0A6EF} = {19133686-BAB2-4FFE-8C40-86C0A6EFCB70}
 		{2537D1CE-5DAA-4F7C-BF22-31AABAF7B2B3} = {19133686-BAB2-4FFE-8C40-86C0A6EFCB70}
+		{9D063415-D28D-4041-BE21-FBC3B1C927FC} = {19133686-BAB2-4FFE-8C40-86C0A6EFCB70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24924198-DDC5-488F-9C14-CF7CF6F3D54F}

@@ -4,7 +4,7 @@ namespace BaseProject.Infra.CrossCutting.CustomExceptions.Responses
 {
     public class ExceptionResponse : Response
     {
-        public ExceptionResponse(Exception ex)
+        public ExceptionResponse(Exception ex, string traceId) : base(traceId)
         {
             Message = ex.Message;
             StackTrace = ex.StackTrace;           

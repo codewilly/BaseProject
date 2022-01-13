@@ -4,13 +4,13 @@ namespace BaseProject.Infra.CrossCutting.CustomExceptions.Responses
 {
     public abstract class Response
     {
-        public Response()
+        public Response(string traceId)
         {
-            TraceId = Guid.NewGuid(); // TODO: Implementar trace id funcional
+            TraceId = traceId;
             At = DateTime.Now;
         }
 
-        public Guid TraceId { get; }
+        public string TraceId { get; }
 
         public DateTime At { get; }
     }

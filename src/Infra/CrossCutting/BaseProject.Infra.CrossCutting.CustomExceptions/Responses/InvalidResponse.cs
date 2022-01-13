@@ -6,7 +6,7 @@ namespace BaseProject.Infra.CrossCutting.CustomExceptions.Responses
 {
     public class InvalidResponse : Response
     {
-        public InvalidResponse(InvalidResultException validationException)
+        public InvalidResponse(InvalidResultException validationException, string traceId) : base(traceId)
         {
             Fields =
                 validationException.ValidationResult.Errors

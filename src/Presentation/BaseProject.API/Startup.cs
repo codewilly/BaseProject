@@ -4,6 +4,7 @@ using BaseProject.Infra.CrossCutting.Middleware;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,8 @@ namespace BaseProject.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.InjectServices(Configuration);
 
@@ -59,6 +62,7 @@ namespace BaseProject.API
 
             app.UseAuthorization();
 
+            app.UseMiddleware<LogHandler>();
             app.UseMiddleware<ExceptionHandler>();
 
             app.UseEndpoints(endpoints =>

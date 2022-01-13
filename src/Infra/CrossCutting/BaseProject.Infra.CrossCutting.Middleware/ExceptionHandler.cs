@@ -10,6 +10,13 @@ namespace BaseProject.Infra.CrossCutting.Middleware
 {
     public class ExceptionHandler : IMiddleware
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ExceptionHandler(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             try
@@ -34,7 +41,7 @@ namespace BaseProject.Infra.CrossCutting.Middleware
         {
             ConfigureContextResponse(context, statusCode);
 
-            ExceptionResponse response = new(exception);
+            ExceptionResponse response = new(exception, _httpContextAccessor.HttpContext.TraceIdentifier);
 
             Console.WriteLine("Erro: " + exception.Message);
 
@@ -45,7 +52,7 @@ namespace BaseProject.Infra.CrossCutting.Middleware
         {
             ConfigureContextResponse(context, HttpStatusCode.BadRequest);
 
-            InvalidResponse response = new(exception);
+            InvalidResponse response = new(exception, _httpContextAccessor.HttpContext.TraceIdentifier);
 
             Console.WriteLine("Ocorreram falhas de validação: " + exception.Message);
 

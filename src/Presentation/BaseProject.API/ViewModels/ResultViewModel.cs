@@ -9,7 +9,7 @@ namespace BaseProject.API.ViewModels
             At = DateTime.Now;
         }
 
-        public Guid TraceId { get; set; }
+        public string TraceId { get; set; }
 
         public DateTime At { get; private set; }
     }

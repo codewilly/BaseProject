@@ -8,6 +8,7 @@ namespace BaseProject.Infra.CrossCutting.IoC.Injections
         public static void Inject(IServiceCollection services)
         {
             services.AddTransient<ExceptionHandler>();
+            services.AddTransient<LogHandler>();
         }
     }
 }

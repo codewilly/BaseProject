@@ -23,7 +23,7 @@ namespace BaseProject.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create([FromBody] FakePayload payload)
         {
             IResult<Guid> result =
                 await _appService.Create();
@@ -43,5 +43,21 @@ namespace BaseProject.API.Controllers
 
             return Result(result);
         }
+    }
+
+    public class FakePayload
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public AddressPayload Address { get; set; }
+    }
+
+    public class AddressPayload
+    {
+        public string Street { get; set; }
+
+        public int Number { get; set; }
     }
 }

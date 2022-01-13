@@ -2,6 +2,7 @@
 using BaseProject.Infra.CrossCutting.CustomExceptions.Responses;
 using BaseProject.Infra.CrossCutting.ExtensionHelper;
 using Microsoft.AspNetCore.Http;
+using Serilog;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -39,22 +40,26 @@ namespace BaseProject.Infra.CrossCutting.Middleware
 
         private async Task HandleException(HttpContext context, Exception exception, HttpStatusCode statusCode = HttpStatusCode.InternalServerError)
         {
+            string traceId = GetTraceIdentifier();
+
             ConfigureContextResponse(context, statusCode);
 
-            ExceptionResponse response = new(exception, _httpContextAccessor.HttpContext.TraceIdentifier);
+            ExceptionResponse response = new(exception, traceId);
 
-            Console.WriteLine("Erro: " + exception.Message);
+            Log.Error(exception, "{traceId} - Erro:", traceId);
 
             await context.Response.WriteAsync(response.ToJson());
         }
 
         private async Task HandleValidationException(HttpContext context, InvalidResultException exception)
         {
+            string traceId = GetTraceIdentifier();
+
             ConfigureContextResponse(context, HttpStatusCode.BadRequest);
 
-            InvalidResponse response = new(exception, _httpContextAccessor.HttpContext.TraceIdentifier);
+            InvalidResponse response = new(exception, traceId);
 
-            Console.WriteLine("Ocorreram falhas de validação: " + exception.Message);
+            Log.Warning(exception, "{traceId} - Ocorreram falhas de validação:", traceId);
 
             await context.Response.WriteAsync(response.ToJson());
         }
@@ -63,6 +68,11 @@ namespace BaseProject.Infra.CrossCutting.Middleware
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
+        }
+
+        private string GetTraceIdentifier()
+        {
+            return _httpContextAccessor.HttpContext.TraceIdentifier;
         }
     }
 }

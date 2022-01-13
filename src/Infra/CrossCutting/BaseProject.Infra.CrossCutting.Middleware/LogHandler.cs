@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,11 +27,9 @@ namespace BaseProject.Infra.CrossCutting.Middleware
             string method = _httpContext.Request.Method;
             string route = _httpContext.Request.Path + _httpContext.Request.QueryString.Value;
 
-            // TODO: Caso contenha body, fazer o log da requisição excluindo dados sensíveis (como senhas)
+            // TODO: Caso contenha body, fazer o log da requisição excluindo dados sensíveis (como senhas) 
 
-            string requestLog = $"{traceId} - [{method}]: {route}";
-
-            Console.WriteLine(requestLog);
+            Log.Information("{traceId} - [{method}]: {route}", traceId, method, route);
 
             Stopwatch stopwatch = Stopwatch.StartNew();
 
@@ -38,9 +37,7 @@ namespace BaseProject.Infra.CrossCutting.Middleware
 
             stopwatch.Stop();
 
-            string responseLog = $"{traceId} - Finished with code {_httpContext.Response.StatusCode} in {stopwatch.ElapsedMilliseconds}ms";
-
-            Console.WriteLine(responseLog);
+            Log.Information("{traceId} - Finished with code {code} in {ms}ms", traceId, _httpContext.Response.StatusCode, stopwatch.ElapsedMilliseconds);
         }
     }
 }
